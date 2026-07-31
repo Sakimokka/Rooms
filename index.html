@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>房间整理记录</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <h1>🏠 房间整理记录</h1>
+
+
+    <div class="date">
+        今天：<span id="today"></span>
+    </div>
+
+
+    <div class="card">
+
+        <h2>今天整理数量</h2>
+
+        <div class="number" id="todayCount">
+            0
+        </div>
+
+
+        <div class="buttons">
+
+            <button onclick="changeCount(-1)">
+                −
+            </button>
+
+
+            <button onclick="changeCount(1)">
+                ＋
+            </button>
+
+        </div>
+
+
+        <button class="save" onclick="saveToday()">
+            保存
+        </button>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>本月累计</h2>
+
+        <div class="number">
+            <span id="monthTotal">0</span>
+        </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>最近记录</h2>
+
+        <div id="history">
+
+            暂无记录
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register(
+        "sw.js"
+    );
+
+}
+</script>
+
+</body>
+
+</html>
