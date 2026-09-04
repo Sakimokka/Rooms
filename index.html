@@ -2,13 +2,26 @@
 <html lang="zh-CN">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>房间整理记录</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
 </head>
 
 
@@ -16,38 +29,60 @@
 
 <div class="app">
 
+
+    <!-- 标题 -->
+
     <h1>🏠 房间整理记录</h1>
 
 
+    <!-- 今天 -->
+
     <div class="date">
-        今天：<span id="today"></span>
+
+        今天：
+        <span id="today"></span>
+
     </div>
 
+
+
+    <!-- 今日记录 -->
 
     <div class="card">
 
         <h2>今天整理数量</h2>
 
-        <div class="number" id="todayCount">
+
+        <div
+            class="number"
+            id="todayCount"
+        >
             0
         </div>
 
 
         <div class="buttons">
 
-            <button onclick="changeCount(-1)">
+            <button
+                onclick="changeCount(-1)"
+            >
                 −
             </button>
 
 
-            <button onclick="changeCount(1)">
+            <button
+                onclick="changeCount(1)"
+            >
                 ＋
             </button>
 
         </div>
 
 
-        <button class="save" onclick="saveToday()">
+        <button
+            class="save"
+            onclick="saveToday()"
+        >
             保存
         </button>
 
@@ -55,27 +90,130 @@
 
 
 
+    <!-- 本月累计 -->
+
     <div class="card">
 
         <h2>本月累计</h2>
 
         <div class="number">
-            <span id="monthTotal">0</span>
+
+            <span id="monthTotal">
+                0
+            </span>
+
+        </div>
+
+        <div>
+            间
         </div>
 
     </div>
 
 
 
+    <!-- 最近7天 -->
+
     <div class="card">
 
-        <h2>最近记录</h2>
+        <h2>📖 最近7天</h2>
 
-        <div id="history">
+
+        <div id="recentHistory">
 
             暂无记录
 
         </div>
+
+
+        <button
+            class="expand-button"
+            onclick="toggleHistory()"
+        >
+            查看更多 ▼
+        </button>
+
+    </div>
+
+
+
+    <!-- 完整记录 -->
+
+    <div
+        class="card"
+        id="allHistory"
+        style="display:none;"
+    >
+
+        <h2>📅 查询记录</h2>
+
+
+        <!-- 日期选择 -->
+
+        <div class="date-selector">
+
+
+            <select id="yearSelect">
+            </select>
+
+
+            <span>年</span>
+
+
+            <select id="monthSelect">
+            </select>
+
+
+            <span>月</span>
+
+
+            <select id="daySelect">
+            </select>
+
+
+            <span>日</span>
+
+
+        </div>
+
+
+        <button
+            class="query-button"
+            onclick="queryDate()"
+        >
+            查询
+        </button>
+
+
+        <!-- 查询结果 -->
+
+        <div
+            id="queryResult"
+            class="query-result"
+        >
+            请选择日期
+        </div>
+
+
+        <!-- 前后日期 -->
+
+        <div class="navigation-buttons">
+
+            <button
+                onclick="changeQueryDate(-1)"
+            >
+                ← 前一天
+            </button>
+
+
+            <button
+                onclick="changeQueryDate(1)"
+            >
+                后一天 →
+            </button>
+
+        </div>
+
 
     </div>
 
@@ -84,9 +222,11 @@
 
 
 
-<script src="script.js"></script>
+<script src="app.js"></script>
+
 
 <script>
+
 if ("serviceWorker" in navigator) {
 
     navigator.serviceWorker.register(
@@ -94,7 +234,9 @@ if ("serviceWorker" in navigator) {
     );
 
 }
+
 </script>
+
 
 </body>
 
